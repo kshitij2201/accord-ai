@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Accord AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #2d1b69 0%, #0f0a19 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .retry-btn {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .retry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .features {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            opacity: 0.7;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .offline-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">
+            📡
+        </div>
+        
+        <h1>You're Offline</h1>
+        <p>It looks like you're not connected to the internet. Don't worry, you can still browse cached content!</p>
+        
+        <button class="retry-btn" onclick="window.location.reload()">
+            🔄 Try Again
+        </button>
+
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">💾</span>
+                <span>Cached content available offline</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔄</span>
+                <span>Auto-sync when connection restored</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📱</span>
+                <span>Full PWA experience</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check for connection and auto-reload
+        window.addEventListener('online', () => {
+            console.log('🌐 Connection restored');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        });
+
+        // Update UI based on connection status
+        function updateConnectionStatus() {
+            if (navigator.onLine) {
+                document.querySelector('p').textContent = 'Connection restored! Redirecting...';
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            }
+        }
+
+        // Check connection status periodically
+        setInterval(updateConnectionStatus, 3000);
+    </script>
+</body>
+</html>

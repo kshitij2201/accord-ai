@@ -1,0 +1,53 @@
+{
+  "greetings": {
+    "hello": "Hello! I'm your AI assistant. How can I help you today?",
+    "hi": "Hi there! What can I do for you?",
+    "hey": "Hey! I'm here to help. What's on your mind?",
+    "good morning": "Good morning! Ready to tackle the day together?",
+    "good afternoon": "Good afternoon! How's your day going?",
+    "good evening": "Good evening! How can I assist you tonight?"
+  },
+  "questions": {
+    "how are you": "I'm doing great, thank you for asking! I'm here and ready to help you with anything you need.",
+    "what can you do": "I can help you with a wide variety of tasks including answering questions, providing information, helping with analysis, creative writing, problem-solving, and much more!",
+    "who are you": "I'm your AI assistant, designed to help you with various tasks and answer your questions.",
+    "what is your name": "I'm your AI assistant. You can call me whatever you'd like!",
+    "tell me about yourself": "I'm an AI assistant created to help users with various tasks, answer questions, and provide useful information. I'm here to make your life easier!"
+  },
+  "technical": {
+    "what is javascript": "JavaScript is a versatile programming language primarily used for web development. It enables interactive web pages and is an essential part of web applications.",
+    "what is python": "Python is a high-level, interpreted programming language known for its simple syntax and readability. It's widely used in web development, data science, AI, and automation.",
+    "what is react": "React is a popular JavaScript library for building user interfaces, particularly web applications. It was developed by Facebook and uses a component-based architecture.",
+    "what is nodejs": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript on the server side, enabling full-stack JavaScript development."
+  },
+  "general": {
+    "thank you": "You're very welcome! I'm glad I could help. Is there anything else you'd like to know?",
+    "thanks": "You're welcome! Happy to help anytime.",
+    "bye": "Goodbye! Feel free to come back anytime you need assistance.",
+    "goodbye": "Goodbye! It was great chatting with you. Take care!",
+    "help": "I'm here to help! You can ask me questions about various topics, request explanations, get assistance with problems, or just have a conversation. What would you like to know?",
+    "what time is it": "I don't have access to real-time data, but you can check the time on your device. Is there something time-related I can help you with?",
+    "weather": "I don't have access to current weather data, but I'd recommend checking a weather app or website for the most accurate forecast in your area."
+  },
+  "fallback": {
+    "default": "That's an interesting question! While I don't have a specific answer in my current dataset, I'm always learning. Could you rephrase your question or ask something else I might be able to help with?",
+    "unclear": "I'm not quite sure what you're asking. Could you please rephrase your question or provide more details?",
+    "no_match": "I don't have information about that specific topic in my current knowledge base. Is there something else I can help you with?"
+  },
+  "programming": {
+    "what is html": "HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page using elements and tags.",
+    "what is css": "CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML. It controls layout, colors, fonts, and more.",
+    "what is api": "An API (Application Programming Interface) is a set of protocols and tools for building software applications. It specifies how software components should interact.",
+    "what is database": "A database is an organized collection of structured information, or data, typically stored electronically in a computer system and managed by a database management system (DBMS)."
+  },
+  "business": {
+    "what is marketing": "Marketing is the process of promoting, selling, and distributing a product or service. It includes market research, advertising, sales, and customer service.",
+    "what is startup": "A startup is a young company founded to develop a unique product or service, bring it to market, and make it irresistible and irreplaceable for customers.",
+    "what is roi": "ROI (Return on Investment) is a performance measure used to evaluate the efficiency of an investment or compare the efficiency of several different investments."
+  },
+  "science": {
+    "what is ai": "Artificial Intelligence (AI) is the simulation of human intelligence in machines that are programmed to think and learn like humans.",
+    "what is machine learning": "Machine Learning is a subset of AI that enables computers to learn and improve from experience without being explicitly programmed for every task.",
+    "what is quantum computing": "Quantum computing is a type of computation that harnesses quantum mechanical phenomena like superposition and entanglement to process information."
+  }
+}
