@@ -53,7 +53,8 @@ app.get('/', (req, res) => {
     message: 'Accord AI Backend is running on Vercel!',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'production',
-    version: '1.0.0'
+    version: '1.0.1',
+    deployedAt: '2025-10-03'
   });
 });
 
