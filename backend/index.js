@@ -90,6 +90,28 @@ app.post('/api/test-cors', (req, res) => {
   });
 });
 
+// Add a test endpoint to verify deployment
+app.get('/api/cors-test', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'CORS test successful!',
+    timestamp: new Date().toISOString(),
+    headers: req.headers,
+    origin: req.get('origin')
+  });
+});
+
+// Quick chat test endpoint
+app.post('/api/test-chat', (req, res) => {
+  const { message } = req.body;
+  res.status(200).json({
+    success: true,
+    message: 'Test chat working!',
+    echo: message || 'No message provided',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.status(200).json({

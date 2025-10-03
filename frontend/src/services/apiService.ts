@@ -27,7 +27,7 @@ class ApiService {
     // Create axios instance with proper configuration
     this.api = axios.create({
       baseURL,
-      timeout: 10000,
+      timeout: 30000, // Increased to 30 seconds for serverless cold starts
       headers: {
         'Content-Type': 'application/json',
       },

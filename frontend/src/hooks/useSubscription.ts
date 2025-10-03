@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SUBSCRIPTION_PLANS, UserSubscription } from '../types/subscription';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://accord-ai-ebon.vercel.app/api';
 
 interface UseSubscriptionReturn {
   subscription: UserSubscription | null;
