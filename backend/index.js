@@ -19,12 +19,27 @@ try {
 app.use(cors({
   origin: [
     process.env.FRONTEND_URL || 'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:5175',
+    'https://accord-ai-ipbv.vercel.app',
+    'https://accord-ai-ipbv.vercel.app/',
     'https://your-frontend-domain.vercel.app'
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With']
 }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
+
+// Handle preflight requests
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, Origin, X-Requested-With');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.sendStatus(200);
+});
 
 // Root endpoint
 app.get('/', (req, res) => {
@@ -60,6 +75,17 @@ app.get('/test', (req, res) => {
   res.status(200).json({
     success: true,
     message: 'Test endpoint working!',
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Test CORS endpoint
+app.post('/api/test-cors', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'CORS test successful!',
+    origin: req.headers.origin,
+    method: req.method,
     timestamp: new Date().toISOString()
   });
 });
