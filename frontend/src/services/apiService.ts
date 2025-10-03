@@ -8,7 +8,21 @@ class ApiService {
     // Allow overriding API base URL via Vite env var during development
     // If VITE_API_URL is not set, use relative '/api' so Vite dev proxy works.
     const envApiUrl = (import.meta as any)?.env?.VITE_API_URL;
-    const baseURL = envApiUrl && typeof envApiUrl === 'string' && envApiUrl.length > 0 ? envApiUrl : '/api';
+    
+    // Debug logging for environment configuration
+    console.log('🔧 Environment check:', {
+      envApiUrl,
+      isDev: (import.meta as any)?.env?.DEV,
+      mode: (import.meta as any)?.env?.MODE,
+      allEnv: (import.meta as any)?.env
+    });
+    
+    // Use backend URL in production, fallback to proxy in development
+    const baseURL = envApiUrl && typeof envApiUrl === 'string' && envApiUrl.length > 0 
+      ? envApiUrl 
+      : 'https://accord-ai-ebon.vercel.app/api'; // Fallback to backend URL
+    
+    console.log('🌐 API Base URL:', baseURL);
 
     // Create axios instance with proper configuration
     this.api = axios.create({
