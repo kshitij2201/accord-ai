@@ -53,8 +53,19 @@ app.get('/', (req, res) => {
     message: 'Accord AI Backend is running on Vercel!',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'production',
-    version: '1.0.1',
-    deployedAt: '2025-10-03'
+    version: '1.0.2',
+    deployedAt: '2025-10-03',
+    commit: '64a071c',
+    status: 'FIXED - Should work now!'
+  });
+});
+
+// Add a test endpoint to verify deployment
+app.get('/test', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Test endpoint working!',
+    deploymentTime: new Date().toISOString()
   });
 });
 

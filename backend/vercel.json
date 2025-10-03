@@ -5,12 +5,24 @@
         {
             "src": "index.js",
             "use": "@vercel/node"
+        },
+        {
+            "src": "api/hello.js",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
         {
+            "src": "/api/hello",
+            "dest": "/api/hello.js"
+        },
+        {
             "src": "/api/(.*)",
             "dest": "/index.js"
+        },
+        {
+            "src": "/favicon.ico",
+            "dest": "/public/favicon.ico"
         },
         {
             "src": "/(.*)",
@@ -23,6 +35,9 @@
     "functions": {
         "index.js": {
             "maxDuration": 30
+        },
+        "api/hello.js": {
+            "maxDuration": 10
         }
     }
 }
