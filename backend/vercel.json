@@ -4,17 +4,25 @@
     "builds": [
         {
             "src": "index.js",
-            "use":"@vercel/node"
+            "use": "@vercel/node"
         }
     ],
-    "routes":[
+    "routes": [
         {
-            "src":"/(.*)",
-            "dest":"index.js",
-            "methods":["GET","POST","PUT","DELETE","PATCH","OPTIONS"],
-            "headers":{
-                "Access-Control-Allow-Origin":"*"
-            }
+            "src": "/api/(.*)",
+            "dest": "/index.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.js"
         }
-    ]
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    },
+    "functions": {
+        "index.js": {
+            "maxDuration": 30
+        }
+    }
 }
