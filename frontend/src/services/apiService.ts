@@ -24,6 +24,9 @@ class ApiService {
     
     console.log('🌐 API Base URL:', baseURL);
 
+    // Test backend connectivity immediately
+    this.testBackendConnection(baseURL);
+
     // Create axios instance with proper configuration
     this.api = axios.create({
       baseURL,
@@ -63,6 +66,23 @@ class ApiService {
         return Promise.reject(error);
       }
     );
+  }
+
+  // Test backend connectivity
+  private async testBackendConnection(baseURL: string) {
+    try {
+      console.log('🔗 Testing backend connection to:', baseURL);
+      const response = await fetch(`${baseURL.replace('/api', '')}/`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      const text = await response.text();
+      console.log('✅ Backend response:', response.status, text);
+    } catch (error) {
+      console.error('❌ Backend connection failed:', error);
+    }
   }
 
   // Auth endpoints
